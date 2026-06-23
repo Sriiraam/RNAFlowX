@@ -1,23 +1,25 @@
-# Expected Outputs
+# Output Specification
 
 ## QC
 
-- FastQC Reports
-- MultiQC Report
+FastQC Reports
+MultiQC Report
 
 ## Alignment
 
-- BAM Files
-- BAM Index Files
+Sorted BAM Files
+Alignment Metrics
 
 ## Quantification
 
-- Gene Counts Matrix
+Gene Count Matrix
 
 ## Differential Expression
 
-- DESeq2 Results
+DESeq2 Results
 
 ## Reporting
 
-- Summary Report
+Summary Reports
+Plots
+Pipeline Run Metadata
