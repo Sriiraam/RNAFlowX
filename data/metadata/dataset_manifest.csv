@@ -1,0 +1,3 @@
+geo_accession,bioproject,sra_study,organism,platform,library_layout,experiment
+
+GSE330905,PRJNA1465899,SRP700373,Homo sapiens,Illumina NovaSeq 6000,PAIRED,PBS_vs_Gluconate
