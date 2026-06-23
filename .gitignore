@@ -1,0 +1,31 @@
+# Nextflow
+work/
+results/
+.nextflow/
+.nextflow.log
+
+# Raw Data
+data/raw/
+
+# Sequencing Files
+*.fastq.gz
+*.fq.gz
+*.bam
+*.bai
+*.sam
+
+# Reports
+*.html
+*.zip
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
