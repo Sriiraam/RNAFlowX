@@ -1,31 +1,19 @@
+# References
+data/reference/raw/*
+data/reference/processed/*
+data/reference/star_index/*
+
+# Raw sequencing data
+data/raw/*
+
+# Analysis outputs
+results/*
+work/*
+
 # Nextflow
-work/
-results/
 .nextflow/
-.nextflow.log
+.nextflow*
 
-# Raw Data
-data/raw/
+# Logs
+*.log
 
-# Sequencing Files
-*.fastq.gz
-*.fq.gz
-*.bam
-*.bai
-*.sam
-
-# Reports
-*.html
-*.zip
-
-# Python
-__pycache__/
-*.pyc
-
-# IDE
-.vscode/
-.idea/
-
-# OS
-.DS_Store
-Thumbs.db

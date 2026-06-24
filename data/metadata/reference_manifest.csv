@@ -1,0 +1,3 @@
+reference_type,source,version,file
+genome,GRCh38,primary_assembly,data/reference/raw/GRCh38.primary_assembly.genome.fa
+annotation,GENCODE,release_50,data/reference/raw/gencode.v50.annotation.gtf
