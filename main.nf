@@ -1,6 +1,8 @@
 nextflow.enable.dsl = 2
 
 include { FASTQC_RAW } from './modules/fastqc_raw'
+include { FASTP_TRIM } from './modules/fastp_trim'
+include { FASTQC_TRIMMED } from './modules/fastqc_trimmed'
 
 workflow {
 Channel
@@ -9,4 +11,8 @@ Channel
     .set { fastq_ch }
 
 FASTQC_RAW(fastq_ch)
+
+trimmed_ch = FASTP_TRIM(fastq_ch)
+
+FASTQC_TRIMMED(trimmed_ch)
 }
