@@ -1,13 +1,70 @@
+# ==========================
+# Nextflow
+# ==========================
 work/
 results/
 .nextflow/
 .nextflow*
-data/raw/
-data/reference/raw/
-data/reference/star_index/
+.nextflow.log
+.trace
+.timeline.*
+.report.*
+.dag.*
+
+# ==========================
+# Alignment Outputs
+# ==========================
 *.bam
 *.bai
+*.sam
+
+# ==========================
+# FASTQ
+# ==========================
+*.fastq
 *.fastq.gz
+*.fq
 *.fq.gz
+
+# ==========================
+# QC Outputs
+# ==========================
 *.html
 *.zip
+multiqc_data/
+
+# ==========================
+# Logs
+# ==========================
+*.log
+
+# ==========================
+# IDE
+# ==========================
+.vscode/
+.idea/
+
+# ==========================
+# Python
+# ==========================
+__pycache__/
+*.pyc
+
+# ==========================
+# macOS
+# ==========================
+.DS_Store
+
+# SRA
+*.sra
+*.sra.tmp
+*.sra.prf
+SRR*/
+ncbi/
+
+# Data
+data/raw/
+data/test_fastq/
+data/reference/
+results/
+work/

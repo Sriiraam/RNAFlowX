@@ -1,0 +1,2 @@
+sample_id,condition,replicate,sra_run,gsm_id
+TEST_1,Control,1,SRR390728,TEST

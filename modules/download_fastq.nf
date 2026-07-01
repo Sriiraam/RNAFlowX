@@ -1,10 +1,10 @@
-process STAR_INDEX {
+process DOWNLOAD {
 
     output:
     stdout
 
     script:
     """
-    echo "STAR_INDEX module"
+    echo "DOWNLOAD module"
     """
 }

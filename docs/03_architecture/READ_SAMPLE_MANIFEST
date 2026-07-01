@@ -1,0 +1,37 @@
+sample_manifest.csv
+        │
+        ▼
+READ_SAMPLE_MANIFEST
+        │
+        ▼
+DOWNLOAD_FASTQ
+        │
+        ▼
+FASTQC_RAW
+        │
+        ▼
+FASTP_TRIM
+        │
+        ▼
+FASTQC_TRIMMED
+        │
+        ▼
+STAR_INDEX
+        │
+        ▼
+STAR_ALIGN
+        │
+        ▼
+SAMTOOLS_SORT
+        │
+        ▼
+SAMTOOLS_INDEX
+        │
+        ▼
+FEATURECOUNTS
+        │
+        ▼
+DESEQ2
+        │
+        ▼
+MULTIQC
