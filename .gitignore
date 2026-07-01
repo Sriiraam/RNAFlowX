@@ -1,19 +1,13 @@
-# References
-data/reference/raw/*
-data/reference/processed/*
-data/reference/star_index/*
-
-# Raw sequencing data
-data/raw/*
-
-# Analysis outputs
-results/*
-work/*
-
-# Nextflow
+work/
+results/
 .nextflow/
 .nextflow*
-
-# Logs
-*.log
-
+data/raw/
+data/reference/raw/
+data/reference/star_index/
+*.bam
+*.bai
+*.fastq.gz
+*.fq.gz
+*.html
+*.zip
