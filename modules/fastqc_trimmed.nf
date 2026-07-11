@@ -20,4 +20,11 @@ process FASTQC_TRIMMED {
         ${read1} \
         ${read2}
     """
+    stub:
+    """
+    touch ${sample_id}_R1.trim_fastqc.html
+    touch ${sample_id}_R1.trim_fastqc.zip
+    touch ${sample_id}_R2.trim_fastqc.html
+    touch ${sample_id}_R2.trim_fastqc.zip
+    """
 }

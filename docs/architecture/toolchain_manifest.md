@@ -2,30 +2,58 @@
 
 ## Workflow Engine
 
-Nextflow 26.04.4
+Nextflow:
+26.04.4
+
 
 ## Runtime
 
-OpenJDK 17.0.19
+Java:
+17.0.19
+
+
+## Core Bioinformatics Tools
+
+FastQC
+
+fastp
+
+STAR
+
+SAMtools
+
+Subread featureCounts
+
 
 ## Planned Analysis Tools
 
-* FastQC
-* STAR
-* Samtools
-* Subread (featureCounts)
-* R
-* DESeq2
-* MultiQC
+R
 
-## Installation Strategy
+DESeq2
 
-Native WSL2 installation
+MultiQC
 
-## Future Enhancement
+clusterProfiler
 
-Containerized execution via Docker
+
+## Reference Resources
+
+Genome:
+GRCh38
+
+Annotation:
+GENCODE v50
+
+
+## Deployment Strategy
+
+Current:
+Native execution
+
+Future:
+Docker/Singularity containers
+
 
 ## Status
 
-Approved for RNAFlowX v1.0
+RNAFlowX v1.0.0

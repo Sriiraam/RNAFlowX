@@ -4,8 +4,8 @@ process STAR_ALIGN {
 
     publishDir "${params.outdir}/star", mode: "copy"
 
-    cpus 2
-    memory '4 GB'
+    cpus 16
+    memory '32 GB'
 
     input:
     tuple val(sample_id),
@@ -18,6 +18,7 @@ process STAR_ALIGN {
     tuple val(sample_id),
           path("${sample_id}.Aligned.sortedByCoord.out.bam")
 
+
     script:
     """
     STAR \
@@ -27,8 +28,11 @@ process STAR_ALIGN {
         --readFilesCommand zcat \
         --outSAMtype BAM SortedByCoordinate \
         --outFileNamePrefix ${sample_id}.
+    """
 
-    mv ${sample_id}.Aligned.sortedByCoord.out.bam \
-       ${sample_id}.Aligned.sortedByCoord.out.bam
+
+    stub:
+    """
+    touch ${sample_id}.Aligned.sortedByCoord.out.bam
     """
 }

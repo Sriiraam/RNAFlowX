@@ -1,193 +1,77 @@
-## Workflow Scope :
+# RNAFlowX Pipeline Architecture
+
+## Workflow Scope
 
 Dataset:
 GSE330905
 
-Comparison:
-PBS vs Gluconate
+Biological Comparison:
+PBS vs Gluconate treatment
 
 Organism:
-Human
+Homo sapiens
 
-Reference:
-GRCh38 + GENCODE v50
+Reference Genome:
+GRCh38
 
-## Pipeline Stages
+Annotation:
+GENCODE v50
 
-SRA Download
-      ↓
-FASTQ Validation
-      ↓
-FastQC
-      ↓
+
+## Pipeline Version
+
+Current Release:
+
+RNAFlowX v1.0.0
+
+
+## Pipeline Objective
+
+RNAFlowX is an automated Nextflow workflow designed for reproducible bulk RNA-seq processing.
+
+The workflow performs:
+
+- Raw read quality assessment
+- Adapter and quality trimming
+- Post-trimming quality validation
+- Genome alignment
+- BAM processing
+- Gene-level quantification
+
+
+## Current Production Workflow
+
+FASTQ
+ |
+FastQC RAW
+ |
+fastp
+ |
+FastQC Trimmed
+ |
 STAR Alignment
-      ↓
+ |
+SAMtools Indexing
+ |
 featureCounts
-      ↓
-DESeq2
-      ↓
-MultiQC
-      ↓
-Final Report
+ |
+Gene Count Matrix
 
-## Modules
 
-# RNAFlowX Pipeline Modules
-
-## Module 1: Download
-
-Input:
-
-* SRR accession
-
-Output:
-
-* FASTQ files
-
-Tool:
-
-* fasterq-dump
-
----
-
-## Module 2: Quality Control
-
-Input:
-
-* FASTQ files
-
-Output:
-
-* FastQC reports
-
-Tool:
-
-* FastQC
-
----
-
-## Module 3: Alignment
-
-Input:
-
-* FASTQ files
-* STAR index
-
-Output:
-
-* Sorted BAM
-
-Tool:
-
-* STAR
-
----
-
-## Module 4: Quantification
-
-Input:
-
-* BAM
-* GTF
-
-Output:
-
-* Gene count matrix
-
-Tool:
-
-* featureCounts
-
----
-
-## Module 5: Differential Expression
-
-Input:
-
-* Count matrix
-* Sample manifest
-
-Output:
-
-* Differential expression results
-
-Tool:
-
-* DESeq2
-
----
-
-## Module 6: Reporting
-
-Input:
-
-* QC metrics
-* DE results
-
-Output:
-
-* Final project report
-
-Tool:
-
-* MultiQC
-
-## Output Structure
+## Current Output Structure
 
 results/
 
-├── download/
-├── qc/
-├── alignment/
-├── counts/
+├── fastqc/
+│
+├── star/
+│
+└── featurecounts/
+
+## Planned Future Outputs
+
+results/
+
+├── multiqc/
 ├── deseq2/
-├── reports/
-└── multiqc/
-
-## Nextflow Channel Flow
-
-sample_manifest.csv
-        │
-        ▼
-    Channel
-        │
-        ▼
- Download
-        │
-        ▼
- FASTQ Channel
-        │
- ┌──────┴──────┐
- ▼             ▼
-FastQC      STAR
-               │
-               ▼
-             BAM
-               │
-               ▼
-        featureCounts
-               │
-               ▼
-         Count Matrix
-               │
-               ▼
-            DESeq2
-               │
-               ▼
-            Results
-
-## v1.0 Deliverables
-
-FastQC Reports
-
-Aligned BAM Files
-
-Gene Count Matrix
-
-Differential Expression Table
-
-Volcano Plot
-
-PCA Plot
-
-MultiQC Report
+└── reports/

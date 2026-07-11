@@ -18,4 +18,11 @@ process FASTQC_RAW {
         ${read1} \
         ${read2}
     """
+    stub:
+    """
+    touch ${sample_id}_1_fastqc.html
+    touch ${sample_id}_1_fastqc.zip
+    touch ${sample_id}_2_fastqc.html
+    touch ${sample_id}_2_fastqc.zip
+    """
 }
