@@ -1,10 +1,26 @@
 process MULTIQC {
 
+    tag "MultiQC Report"
+
+
+    publishDir "${params.outdir}/multiqc", mode: "copy"
+
+
+    input:
+
+    path qc_files
+
+
     output:
-    stdout
+
+    path "multiqc_report.html"
+
 
     script:
+
     """
-    echo "MULTIQC module"
+    multiqc \
+        ${qc_files} \
+        -o .
     """
 }

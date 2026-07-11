@@ -10,8 +10,7 @@ process FASTQC_TRIMMED {
           path(read2)
 
     output:
-    path("*_fastqc.html")
-    path("*_fastqc.zip")
+tuple val(sample_id), path("*_fastqc.zip")
 
     script:
     """

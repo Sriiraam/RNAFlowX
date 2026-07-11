@@ -56,9 +56,9 @@ SAMtools Indexing
 featureCounts
  |
 Gene Count Matrix
+ 
+### current architecture
 
-
-## Current Output Structure
 
 results/
 
@@ -66,12 +66,8 @@ results/
 │
 ├── star/
 │
-└── featurecounts/
-
-## Planned Future Outputs
-
-results/
-
-├── multiqc/
-├── deseq2/
-└── reports/
+├── featurecounts/
+│
+└── multiqc/
+        |
+        └── multiqc_report.html

@@ -15,9 +15,9 @@ process STAR_ALIGN {
     path star_index
 
     output:
-    tuple val(sample_id),
-          path("${sample_id}.Aligned.sortedByCoord.out.bam")
-
+      tuple val(sample_id),
+      path("${sample_id}.Aligned.sortedByCoord.out.bam"),
+      path("${sample_id}.Log.final.out")
 
     script:
     """

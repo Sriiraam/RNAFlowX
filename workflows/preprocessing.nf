@@ -5,17 +5,32 @@ include { FASTQC_TRIMMED } from '../modules/fastqc_trimmed'
 
 workflow PREPROCESSING {
 
+
     take:
     reads
 
+
     main:
 
-    FASTQC_RAW(reads)
+
+    raw_qc = FASTQC_RAW(reads)
+
 
     fastp_result = FASTP_TRIM(reads)
 
-    FASTQC_TRIMMED(fastp_result.trimmed_reads)
+
+    trimmed_qc = FASTQC_TRIMMED(
+        fastp_result.trimmed_reads
+    )
+
 
     emit:
-    trimmed_reads = fastp_result.trimmed_reads
+
+   
+trimmed_reads = fastp_result.trimmed_reads
+
+raw_qc = raw_qc
+
+trimmed_qc = trimmed_qc
+
 }
