@@ -12,6 +12,7 @@ process SAMTOOLS_INDEX {
 
     output:
     tuple val(sample_id),
+          path(bam),
           path("${bam}.bai")
 
 
