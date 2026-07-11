@@ -53,10 +53,14 @@ star_logs = alignment_result.star_logs
 
 
 
-qc_channel = raw_qc_files
-    .mix(trimmed_qc_files)
-    .mix(star_logs)
+qc_channel = raw_qc
+    .mix(trimmed_qc)
+    .mix(alignment_result.star_logs)
+    .map { item ->
+        item instanceof List ? item[1..-1] : item
+    }
+    .flatten()
 
 
-MULTIQC(qc_channel)
+MULTIQC(qc_channel.collect())
 }
