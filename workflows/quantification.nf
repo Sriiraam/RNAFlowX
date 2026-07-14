@@ -10,9 +10,13 @@ workflow QUANTIFICATION {
 
     main:
 
-    FEATURECOUNTS(
+    counts = FEATURECOUNTS(
         bam,
         annotation
     )
+
+
+    emit:
+    counts
 
 }

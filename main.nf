@@ -2,6 +2,7 @@ include { PREPROCESSING } from './workflows/preprocessing'
 include { ALIGNMENT } from './workflows/alignment'
 include { QUANTIFICATION } from './workflows/quantification'
 include { MULTIQC } from './modules/multiqc'
+include { DIFFERENTIAL_EXPRESSION } from './workflows/differential_expression'
 
 
 workflow {
@@ -25,42 +26,46 @@ workflow {
 
 
 
+    /*
+     ALIGNMENT
+    */
+
     alignment_result = ALIGNMENT(
         trimmed_reads,
         file(params.star_index)
     )
+/*
+ QUANTIFICATION
+*/
+
+quant_results = QUANTIFICATION(
+    alignment_result.bam,
+    file(params.gtf)
+)
 
 
-
-    QUANTIFICATION(
-        alignment_result.bam,
-        file(params.gtf)
-    )
+count_files = quant_results.counts.collect()
 
 
-
-    raw_qc_files = raw_qc.map { sample_id, file ->
-    file
-}
+metadata = file("data/metadata/deseq2_metadata.csv")
 
 
-trimmed_qc_files = trimmed_qc.map { sample_id, file ->
-    file
-}
+DEG = DIFFERENTIAL_EXPRESSION(
+    count_files,
+    metadata
+)    /*
+     MULTIQC
+    */
+
+    qc_channel = raw_qc
+        .mix(trimmed_qc)
+        .mix(alignment_result.star_logs)
+        .map { item ->
+            item instanceof List ? item[1..-1] : item
+        }
+        .flatten()
 
 
-star_logs = alignment_result.star_logs
+    MULTIQC(qc_channel.collect())
 
-
-
-qc_channel = raw_qc
-    .mix(trimmed_qc)
-    .mix(alignment_result.star_logs)
-    .map { item ->
-        item instanceof List ? item[1..-1] : item
-    }
-    .flatten()
-
-
-MULTIQC(qc_channel.collect())
 }
