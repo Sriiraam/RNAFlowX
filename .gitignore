@@ -69,3 +69,5 @@ data/reference/
 
 # Archive
 archive/
+
+tests/test_output/
