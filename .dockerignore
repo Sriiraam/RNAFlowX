@@ -1,15 +1,36 @@
+# Nextflow outputs
 work/
 results/
-data/raw/
-data/reference/
-data/sra/
+
+# Sequencing data
+data/raw/**
+data/reference/**
+data/sra/**
+data/**
+
+# SRA downloads
 SRR*/
+
+# Logs
+logs/
+*.log
+
+# Archives/backups
+archive/
+
+# Tests
+tests/
+
+# Nextflow
 .nextflow/
 .nextflow*
-*.log
+
+# Large biological files
 *.sra
 *.fastq
 *.fastq.gz
 *.bam
 *.bai
+
+# Git
 .git/
