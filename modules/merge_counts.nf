@@ -69,4 +69,10 @@ matrix.to_csv(
 
 PY
     """
+
+    stub:
+    """
+    echo "gene_id,SRR38588371" > gene_count_matrix.csv
+    echo "ENSG000001,100" >> gene_count_matrix.csv
+    """
 }

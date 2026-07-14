@@ -52,11 +52,10 @@ res <- results(
     dds,
     contrast=c(
         "condition",
-        "Gluconate",
-        "PBS"
+        "${params.treatment}",
+        "${params.control}"
     )
 )
-
 
 res <- as.data.frame(res)
 
@@ -130,7 +129,7 @@ plot(
     res\$log2FoldChange,
     -log10(res\$padj),
     pch=20,
-    main="Gluconate vs PBS",
+    main="${params.treatment} vs ${params.control}",
     xlab="log2 Fold Change",
     ylab="-log10 adjusted p-value"
 )
@@ -145,4 +144,13 @@ saveRDS(
 
 RSCRIPT
 """
+stub:
+"""
+touch deseq2_results.csv
+touch normalized_counts.csv
+touch vst_counts.csv
+touch PCA.png
+touch volcano_plot.png
+touch dds.rds
+""" 
 }

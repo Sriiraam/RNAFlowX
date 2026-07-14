@@ -43,11 +43,13 @@ quant_results = QUANTIFICATION(
     file(params.gtf)
 )
 
+count_files = quant_results.counts
+    .map { sample_id, count_file, summary_file ->
+        count_file
+    }
+    .collect()
 
-count_files = quant_results.counts.collect()
-
-
-metadata = file("data/metadata/deseq2_metadata.csv")
+metadata = file(params.metadata)
 
 
 DEG = DIFFERENTIAL_EXPRESSION(

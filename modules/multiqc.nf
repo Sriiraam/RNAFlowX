@@ -22,4 +22,11 @@ process MULTIQC {
         --filename multiqc_report.html \
         -o .
     """
+
+
+    stub:
+    """
+    touch multiqc_report.html
+    mkdir -p multiqc_report_data
+    """
 }

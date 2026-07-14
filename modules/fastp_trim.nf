@@ -27,4 +27,11 @@ process FASTP_TRIM {
     --html ${sample_id}.fastp.html \
     --json ${sample_id}.fastp.json
     """
+    stub:
+    """
+    touch ${sample_id}_R1.trim.fastq.gz
+    touch ${sample_id}_R2.trim.fastq.gz
+    touch ${sample_id}.fastp.html
+    touch ${sample_id}.fastp.json
+    """
 }

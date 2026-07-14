@@ -32,7 +32,9 @@ process STAR_ALIGN {
 
 
     stub:
-    """
-    touch ${sample_id}.Aligned.sortedByCoord.out.bam
-    """
+"""
+touch ${sample_id}.Aligned.sortedByCoord.out.bam
+touch ${sample_id}.Log.final.out
+touch ${sample_id}.SJ.out.tab
+"""
 }
