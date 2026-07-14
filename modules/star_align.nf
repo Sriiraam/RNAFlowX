@@ -4,9 +4,7 @@ process STAR_ALIGN {
 
     publishDir "${params.outdir}/star", mode: "copy"
 
-    cpus 16
-    memory '32 GB'
-
+  
     input:
     tuple val(sample_id),
           path(read1),
