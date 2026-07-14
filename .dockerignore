@@ -1,0 +1,15 @@
+work/
+results/
+data/raw/
+data/reference/
+data/sra/
+SRR*/
+.nextflow/
+.nextflow*
+*.log
+*.sra
+*.fastq
+*.fastq.gz
+*.bam
+*.bai
+.git/
