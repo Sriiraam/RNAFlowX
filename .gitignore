@@ -66,5 +66,6 @@ ncbi/
 data/raw/
 data/test_fastq/
 data/reference/
-results/
-work/
+
+# Archive
+archive/
