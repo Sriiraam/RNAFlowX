@@ -28,12 +28,12 @@ jobs:
 
 
       - name: Check Nextflow version
-        run:
+        run: |
           nextflow -version
 
 
       - name: Run RNAFlowX integration test
-        run:
+        run: |
           nextflow run main.nf \
-          -config tests/integration/test.config \
-          -stub-run
+            -config tests/integration/test.config \
+            -stub-run
