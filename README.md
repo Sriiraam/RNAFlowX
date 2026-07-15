@@ -1,53 +1,106 @@
 # RNAFlowX
 
-## Automated Bulk RNA-seq Analysis Workflow
+A production-ready RNA-Seq analysis pipeline built with Nextflow DSL2.
 
-RNAFlowX is a reproducible Nextflow-based workflow for processing paired-end bulk RNA sequencing data from raw FASTQ files to gene-level quantification.
-
-## Overview
-
-The workflow automates:
-
-FASTQ
-→ Quality Control
-→ Read Trimming
-→ Alignment
-→ BAM Processing
-→ Gene Quantification
-
-
-## Tools
-
-| Step | Tool |
-|---|---|
-| QC | FastQC |
-| Trimming | fastp |
-| Alignment | STAR |
-| BAM Processing | SAMtools |
-| Quantification | featureCounts |
-| Workflow Engine | Nextflow |
-
+---
 
 ## Features
 
-- Modular Nextflow architecture
-- Reproducible execution
-- Configurable resources
-- Automated processing of multiple samples
+- FastQC
+- fastp
+- STAR
+- featureCounts
+- DESeq2
+- MultiQC
+- Docker support
+- GitHub Actions CI
+- AWS-ready configuration
+- Modular DSL2 architecture
 
+---
 
-## Input
+## Pipeline
 
-Paired-end RNA sequencing FASTQ files
+FASTQ
+ ↓
+FastQC
+ ↓
+fastp
+ ↓
+FastQC
+ ↓
+STAR
+ ↓
+SAMtools
+ ↓
+featureCounts
+ ↓
+DESeq2
+ ↓
+MultiQC
 
+---
 
-## Output
+## Requirements
 
-- Quality reports
-- Alignment files
-- Gene count tables
+Nextflow >=26
+Java 17
+Docker (optional)
 
+---
+
+## Quick Start
+
+git clone ...
+
+cd RNAFlowX
+
+nextflow run main.nf
+
+---
+
+## Docker
+
+docker build -t rnaflowx:1.0 \
+-f containers/Dockerfile .
+
+nextflow run main.nf -profile docker
+
+---
+
+## Testing
+
+nextflow run main.nf \
+-config tests/integration/test.config \
+-config conf/ci.config \
+-stub-run
+
+---
+
+## Project Structure
+
+modules/
+workflows/
+conf/
+containers/
+tests/
+docs/
+
+---
+
+## Results
+
+results/
+
+---
 
 ## Version
 
-Current release: v1.0.0
+1.0.0
+
+---
+
+## License
+
+MIT
+
