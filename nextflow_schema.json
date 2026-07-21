@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "RNAFlowX",
+  "description": "A modular Nextflow DSL2 RNA-seq differential expression analysis pipeline.",
+  "type": "object",
+
+  "properties": {
+
+    "reads": {
+      "type": "string",
+      "description": "Input FASTQ file pattern."
+    },
+
+    "star_index": {
+      "type": "string",
+      "description": "Directory containing the STAR genome index."
+    },
+
+    "gtf": {
+      "type": "string",
+      "description": "Reference GTF annotation."
+    },
+
+    "metadata": {
+      "type": "string",
+      "description": "DESeq2 metadata CSV file."
+    },
+
+    "sample_manifest": {
+      "type": "string",
+      "description": "Sample manifest CSV."
+    },
+
+    "treatment": {
+      "type": "string",
+      "description": "Treatment condition."
+    },
+
+    "control": {
+      "type": "string",
+      "description": "Control condition."
+    },
+
+    "outdir": {
+      "type": "string",
+      "description": "Output directory."
+    }
+
+  }
+}

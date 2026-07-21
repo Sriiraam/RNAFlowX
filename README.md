@@ -87,6 +87,13 @@ tests/
 docs/
 
 ---
+## Running on Slurm HPC
+
+Run the workflow on a Slurm cluster:
+
+```bash
+nextflow run main.nf -profile slurm
+```
 
 ## Results
 
