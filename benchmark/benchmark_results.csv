@@ -1,0 +1,14 @@
+Metric,Value
+Workflow,RNAFlowX
+Version,v1.0.0
+Workflow Engine,Nextflow DSL2
+Executor,Local
+Samples,8
+Reference,GRCh38
+Aligner,STAR
+Quantification,featureCounts
+Differential Expression,DESeq2
+QC,FastQC
+Reporting,MultiQC
+Benchmark Artifacts,report timeline trace dag
+Status,Completed
